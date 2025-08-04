@@ -1,7 +1,5 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { Button } from './ui/button';
-import { Input } from './ui/input';
-import { Label } from './ui/label';
 import { Card, CardContent, CardHeader, CardTitle } from './ui/card';
 import { Phone, Mail, MapPin, Clock } from 'lucide-react';
 
@@ -18,28 +16,6 @@ const WhatsAppIcon: React.FC<{ className?: string }> = ({ className }) => (
 );
 
 export const ContactSection: React.FC = () => {
-  const [formData, setFormData] = useState({
-    name: '',
-    email: '',
-    phone: '',
-    event: '',
-    message: ''
-  });
-
-  const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
-    const { name, value } = e.target;
-    setFormData(prev => ({
-      ...prev,
-      [name]: value
-    }));
-  };
-
-  const handleSubmit = (e: React.FormEvent) => {
-    e.preventDefault();
-    const message = `Nome: ${formData.name}\nEmail: ${formData.email}\nTelefone: ${formData.phone}\nEvento: ${formData.event}\nMensagem: ${formData.message}`;
-    window.open(`https://wa.me/5511999999999?text=${encodeURIComponent(message)}`, '_blank');
-  };
-
   const handleWhatsApp = () => {
     window.open('https://wa.me/5511999999999?text=Olá! Gostaria de mais informações sobre aluguel de roupas.', '_blank');
   };
